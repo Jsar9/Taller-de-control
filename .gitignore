@@ -1,0 +1,22 @@
+# Archivos temporales de MATLAB
+*.asv
+*.mex*
+*.mat
+*.fig
+*.log
+*.bak
+
+# Archivos de Simulink
+*.slx
+*.mdl
+slprj/
+simout/
+
+# Archivos temporales de configuración de MATLAB
+*.local
+*.prefs
+
+codegen/
+slprj/
+simulinkCache/
+work/
