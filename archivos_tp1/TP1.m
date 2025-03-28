@@ -85,19 +85,19 @@ G7= linealizar_Fun(0.7,valores_Equilibrio(0.7,Qi),0.7,Qi);
 G8= linealizar_Fun(0.8,valores_Equilibrio(0.8,Qi),0.8,Qi);
 
 % BODE de las linealizaciones a lazo abierto
-figure ()
-hold on 
-bode(G1);
-bode(G2);
-bode(G3);
-bode(G4);
-bode(G5);
-bode(G6);
-bode(G7);
-bode(G8);
-legend();
-title('Bode de las G')
-hold off
+% figure ()
+% hold on 
+% bode(G1);
+% bode(G2);
+% bode(G3);
+% bode(G4);
+% bode(G5);
+% bode(G6);
+% bode(G7);
+% bode(G8);
+% legend();
+% title('Bode de las G')
+% hold off
 
 
 %% Diseño del controlador 
@@ -112,73 +112,74 @@ T=1-S;
 
 
 % GRAFICOS
-subplot(2,2,1)
-bode(L,optionss);
-title('Lazo abierto')
+% subplot(2,2,1)
+% bode(L,optionss);
+% title('Lazo abierto (L) ')
 
-subplot(2,2,2)
-step(H)
-stepinfo(H)
-title('Step del lazo cerrado')
+% subplot(2,2,2)
+% step(H)
+% stepinfo(H)
+% title('Step del lazo cerrado')
 
-subplot(2,2,3)
-bode(T,optionss);
-title('Sensibilidad complementaria')
+% subplot(2,2,3)
+% bode(T,optionss);
+% title('Sensibilidad complementaria (T) ')
 
 
 %% BODE de lazo abierto, con controlador.
 
-H1=C*G1;
-H2=C*G2;
-H3=C*G3;
-H4=C*G4;
-H5=C*G5;
-H6=C*G6;
-H7=C*G7;
-H8=C*G8;
+L1=C*G1;
+L2=C*G2;
+L3=C*G3;
+L4=C*G4;
+L5=C*G5;
+L6=C*G6;
+L7=C*G7;
+L8=C*G8;
 
 % % GRAFICOS
 % figure ()
 % hold on 
-% bode(H1);
-% bode(H2);
-% bode(H3);
-% bode(H4);
-% bode(H5);
-% bode(H6);
-% bode(H7);
-% bode(H8);
+% bode(L1);
+% bode(L2);
+% bode(L3);
+% bode(L4);
+% bode(L5);
+% bode(L6);
+% bode(L7);
+% bode(L8);
 % legend();
-% title("Bode de las H=G*C");
+% title("Bode de las L=G*C");
 % hold off
 
 %% BODE de la sensibilidad complementaria (siempre a lazo cerrado)
 %Se aprecia que aumenta el ancho de banda a medida que el punto de
 %equilibrio es una altura más pequeña, lo que implica una respuesta más
 %rápida del sistema a esas alturas.
-T1=1 - 1/(1+H1);
-T2=1 - 1/(1+H2);
-T3=1 - 1/(1+H3);
-T4=1 - 1/(1+H4);
-T5=1 - 1/(1+H5);
-T6=1 - 1/(1+H6);
-T7=1 - 1/(1+H7);
-T8=1 - 1/(1+H8);
+T1=1 - 1/(1+L1);
+T2=1 - 1/(1+L2);
+T3=1 - 1/(1+L3);
+T4=1 - 1/(1+L4);
+T5=1 - 1/(1+L5);
+T6=1 - 1/(1+L6);
+T7=1 - 1/(1+L7);
+T8=1 - 1/(1+L8);
 
 % % GRAFICOS
-% figure ()
-% title("Bode de las T");
-% hold on 
-% bode(T1);
-% bode(T2);
-% bode(T3);
-% bode(T4);
-% bode(T5);
-% bode(T6);
-% bode(T7);
-% bode(T8);
-% legend();
-% hold off
+figure ()
+title("Bode de las T");
+hold on 
+bode(T1);
+bode(T2);
+bode(T3);
+bode(T4);
+bode(T5);
+bode(T6);
+bode(T7);
+bode(T8);
+legend();
+title('Sensibilidades complementarias (T)')
+hold off
 
 
 
