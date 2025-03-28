@@ -7,7 +7,6 @@
 *.bak
 
 # Archivos de Simulink
-*.slx
 *.mdl
 slprj/
 simout/
